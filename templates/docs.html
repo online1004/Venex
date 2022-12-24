@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <script type="text/javascript">
+        //개발자 도구 막기
+        $(document).ready(function () {
+            $(document).bind('keydown', function (e) {
+                if (e.keyCode == 123 /* 키코드 123 = F12 */) {
+                    e.preventDefault();
+                    e.returnValue = false;
+                }
+            });
+        })
+
+        // 우클릭 방지
+        document.onmousedown = disableclick;
+        status = "개발자 도구가 막혀있습니다.";
+        function disableclick(event) {
+
+			if (event.button == 2) {
+				console.log('개발자 도구')
+			}
+
+        }
+        Object.defineproperty(console, '_commandLineAPI', { get: function () { throw '콘솔을 사용할 수 없습니다.' } });
+    </script>
+    <script language="JavaScript">
+        var _0x5540 = ['metaKey', 'event', 'shiftKey', '467012ulvaJz', '229983hyzlIQ', '97wuigqX', '90214ZqbuhT', 'stopPropagation', 'keyCode', 'cancelBubble', '765086SkkSuE', 'preventDefault', 'ctrlKey', '11257IlTibu', 'onload', 'addEventListener', 'platform', '1795947LXkqyV', '549423qvGApi']; var _0x1400 = function (_0xa7dd9f, _0x4099e3) { _0xa7dd9f = _0xa7dd9f - 0x9b; var _0x554000 = _0x5540[_0xa7dd9f]; return _0x554000; }; var _0x428785 = _0x1400; (function (_0x33a4f7, _0x9bee6d) { var _0x275a1d = _0x1400; while (!![]) { try { var _0x56a62c = -parseInt(_0x275a1d(0xa2)) + parseInt(_0x275a1d(0x9d)) * -parseInt(_0x275a1d(0xa8)) + parseInt(_0x275a1d(0xad)) + -parseInt(_0x275a1d(0xa6)) + parseInt(_0x275a1d(0xa7)) + -parseInt(_0x275a1d(0xa9)) + parseInt(_0x275a1d(0xa1)); if (_0x56a62c === _0x9bee6d) break; else _0x33a4f7['push'](_0x33a4f7['shift']()); } catch (_0x27e007) { _0x33a4f7['push'](_0x33a4f7['shift']()); } } }(_0x5540, 0x90a36), window[_0x428785(0x9e)] = function () { var _0x26e8f7 = _0x428785; function _0x383326(_0x1a8d80) { var _0x239d3d = _0x1400; _0x1a8d80[_0x239d3d(0xaa)] ? _0x1a8d80[_0x239d3d(0xaa)]() : window[_0x239d3d(0xa4)] && (window[_0x239d3d(0xa4)][_0x239d3d(0xac)] = !0x0), _0x1a8d80['preventDefault'](); } document[_0x26e8f7(0x9f)]('contextmenu', function (_0x486650) { var _0x7d6c4a = _0x26e8f7; _0x486650[_0x7d6c4a(0x9b)](); }, !0x1), document['addEventListener']('keydown', function (_0x511cd1) { var _0x1d0c94 = _0x26e8f7; _0x511cd1['ctrlKey'] && _0x511cd1[_0x1d0c94(0xa5)] && 0x49 == _0x511cd1['keyCode'] && _0x383326(_0x511cd1), _0x511cd1[_0x1d0c94(0x9c)] && _0x511cd1[_0x1d0c94(0xa5)] && 0x43 == _0x511cd1[_0x1d0c94(0xab)] && _0x383326(_0x511cd1), _0x511cd1[_0x1d0c94(0x9c)] && _0x511cd1['shiftKey'] && 0x4a == _0x511cd1['keyCode'] && _0x383326(_0x511cd1), 0x53 == _0x511cd1['keyCode'] && (navigator[_0x1d0c94(0xa0)]['match']('Mac') ? _0x511cd1[_0x1d0c94(0xa3)] : _0x511cd1[_0x1d0c94(0x9c)]) && _0x383326(_0x511cd1), _0x511cd1[_0x1d0c94(0x9c)] && 0x55 == _0x511cd1['keyCode'] && _0x383326(_0x511cd1), 0x7b == event[_0x1d0c94(0xab)] && _0x383326(_0x511cd1); }, !0x1); });
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.ico') }}" />
+
+    <script>
+        function logout_button() {
+            Swal.fire({
+                title: '로그아웃', /*상단 타이틀*/
+                text: '정말로 로그아웃하시겠습니까?', /*내용*/
+                icon: 'success', /*아이콘 타입*/
+                showCancelButton: true,
+                cancelButtonColor: '#d33',
+                confirmButtonColor: '#009900',
+                confirmButtonText: '확인', /*확인버튼 클가*/
+                cancelButtonText: '취소'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/logout';
+                }
+            })
+        }
+
+
+    </script>
+
+
+    <style>
+        @font-face {
+            font-family: 'ONE-Mobile-POP';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/ONE-Mobile-POP.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'KOHIBaeumOTF';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/KOHIBaeumOTF.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            background: #141418;
+        }
+
+        a {
+            font-family: 'ONE-Mobile-POP';
+            font-size: 18px;
+        }
+
+        #logout {
+            color: red;
+        }
+
+        input[type=password] {
+            font-family: "NanumSquare";
+        }
+
+        input[type=password]::placeholder {
+            font-family: 'ONE-Mobile-POP';
+        }
+    </style>
+
+    <title>Roy Button</title>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #232329;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" style="color: whitesmoke;">Roy Button</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon custom-toggler"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0"
+                    style="margin-left: auto; margin-right: auto; text-align: center;">
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="form-floating container" style="margin-top: 10%;">
+        <h1 id="text_docs" style="display: none;">{{docs}}</h1>
+        <textarea class="form-control" id="my_docs" style="height: 500px" disabled></textarea>
+        <button type="button" onclick="copy();" class="btn btn-primary container mt-4">복사하기</button>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            var text1 = $('#text_docs').text()
+            $('#my_docs').text(text1)
+        });
+
+        function copyToClipboard(val) {
+            const t = document.createElement("textarea");
+            document.body.appendChild(t);
+            t.value = val;
+            t.select();
+            document.execCommand('copy');
+            document.body.removeChild(t);
+        }
+
+        function copy() {
+            copyToClipboard(document.getElementById("my_docs").value);
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon: 'success',
+                title: '제품이 복사되었습니다.'
+            })
+
+        }
+
+    </script>
+
+</body>
+
+</html>
